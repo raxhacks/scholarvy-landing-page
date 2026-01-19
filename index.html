@@ -12028,9 +12028,15 @@
                                                     el.style.setProperty('text-align', 'center', 'important');
                                                     el.style.setProperty('opacity', '1', 'important');
                                                     el.style.setProperty('visibility', 'visible', 'important');
-                                                    el.style.setProperty('transform', 'none', 'important');
                                                     el.style.setProperty('margin-left', 'auto', 'important');
                                                     el.style.setProperty('margin-right', 'auto', 'important');
+
+                                                    // Special case: preserve translate(-50%) for the centering container
+                                                    if (el.classList.contains('framer-17j24l2-container')) {
+                                                        el.style.setProperty('transform', 'translate(-50%)', 'important');
+                                                    } else {
+                                                        el.style.setProperty('transform', 'none', 'important');
+                                                    }
                                                 }
                                             });
                                         };
